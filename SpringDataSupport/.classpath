@@ -9,5 +9,7 @@
 	<classpathentry kind="lib" path="C:/Users/asahu23/Documents/01AmitData/Study/Springs/RequiredAPIs/ApatcheDerby/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derby.jar"/>
 	<classpathentry kind="lib" path="C:/Users/asahu23/Documents/01AmitData/Study/Springs/RequiredAPIs/ApatcheDerby/db-derby-10.14.2.0-bin/db-derby-10.14.2.0-bin/lib/derbyclient.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/SpringLib"/>
+	<classpathentry kind="lib" path="C:/Users/asahu23/Documents/01AmitData/Study/Springs/RequiredAPIs/commons-dbcp2-2.7.0-bin/commons-dbcp2-2.7.0/commons-dbcp2-2.7.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/asahu23/Documents/01AmitData/Study/Springs/RequiredAPIs/commons-pool2-2.7.0-bin/commons-pool2-2.7.0/commons-pool2-2.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
