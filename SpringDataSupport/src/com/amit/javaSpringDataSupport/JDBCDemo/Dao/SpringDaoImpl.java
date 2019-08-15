@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Component;
 
 import com.amit.javaSpringDataSupport.JDBCDemo.module.Circle;
@@ -52,13 +53,25 @@ public class SpringDaoImpl {
 	}
 	
 	//Returns Circle Object.
-	/*
-	 * public Circle getCircleForId(int circleId) { String sql =
-	 * "SELECT NAME FROM CIRCLE WHERE ID=?";
-	 * 
-	 * }
-	 */
 	
+	  public Circle getCircleForId(int circleId) { 
+		  String sql = "SELECT * FROM CIRCLE WHERE ID=?";
+		  return jdbcTemplate.queryForObject(sql, new Object[] {circleId}, new CircleManager());
+	  }
+
+	  //Inner Class
+	  private static final class CircleManager implements RowMapper<Circle>{
+
+		@Override
+		public Circle mapRow(ResultSet resultSet, int rowNum) throws SQLException {
+			Circle circle = new Circle();
+			circle.setId(resultSet.getInt("ID"));
+			circle.setName(resultSet.getString("NAME"));
+			return circle;
+		}
+		  
+	  }
+	  
 	/*
 	 * public Circle getCircle(int circleId) {
 	 * 
