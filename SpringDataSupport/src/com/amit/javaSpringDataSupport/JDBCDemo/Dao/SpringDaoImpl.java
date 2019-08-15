@@ -16,7 +16,7 @@ import com.amit.javaSpringDataSupport.JDBCDemo.module.Circle;
 @Component
 public class SpringDaoImpl {
 
-	@Autowired
+	//@Autowired
 	private DataSource datasource;
 	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
 
@@ -24,6 +24,7 @@ public class SpringDaoImpl {
 		return datasource;
 	}
 
+	@Autowired
 	public void setDatasource(DataSource dataSource) {
 		//this.dataSource = dataSource;
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -39,7 +40,7 @@ public class SpringDaoImpl {
 
 	public int getCircleCount() {
 		String sql = "SELECT COUNT(*) FROM CIRCLE";
-		jdbcTemplate.setDataSource(getDatasource());
+		//jdbcTemplate.setDataSource(getDatasource());
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
 
