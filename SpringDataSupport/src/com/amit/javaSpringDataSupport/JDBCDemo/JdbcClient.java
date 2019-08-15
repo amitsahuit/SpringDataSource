@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.amit.javaSpringDataSupport.JDBCDemo.Dao.JdbcDaoImpl;
+import com.amit.javaSpringDataSupport.JDBCDemo.Dao.SpringDaoImpl;
 import com.amit.javaSpringDataSupport.JDBCDemo.module.Circle;
 
 public class JdbcClient {
@@ -14,9 +15,12 @@ public class JdbcClient {
 		  System.out.println(circle.getName());*/
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringDataSupport.xml");
-		JdbcDaoImpl dao = context.getBean("jdbcDaoImpl", JdbcDaoImpl.class);
+		/*JdbcDaoImpl dao = context.getBean("jdbcDaoImpl", JdbcDaoImpl.class);
 		Circle circle = dao.getCircle(1);
-		System.out.println(circle.getName());
+		System.out.println(circle.getName());*/
+		
+		SpringDaoImpl dao = context.getBean("springDaoImpl", SpringDaoImpl.class);
+		System.out.println(dao.getCircleCount());
 		
 	}
 

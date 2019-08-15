@@ -43,7 +43,7 @@ public class JdbcDaoImpl {
 		//Prepared statement
 		PreparedStatement ps = conn.prepareStatement("select * from circle where id=?");
 		ps.setInt(1, circleId);
-		
+				
 		//Executing the query
 		Circle circle = null;
 		ResultSet rs = ps.executeQuery();
