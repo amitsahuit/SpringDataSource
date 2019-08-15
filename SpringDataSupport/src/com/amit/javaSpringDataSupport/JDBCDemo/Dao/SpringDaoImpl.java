@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -53,14 +54,19 @@ public class SpringDaoImpl {
 	}
 	
 	//Returns Circle Object.
-	
-	  public Circle getCircleForId(int circleId) { 
+	public Circle getCircleForId(int circleId) { 
 		  String sql = "SELECT * FROM CIRCLE WHERE ID=?";
 		  return jdbcTemplate.queryForObject(sql, new Object[] {circleId}, new CircleManager());
 	  }
-
-	  //Inner Class
-	  private static final class CircleManager implements RowMapper<Circle>{
+	
+	//Returns List of records.
+	public List<Circle> getAllCircles() { 
+		  String sql = "SELECT * FROM CIRCLE";
+		  return jdbcTemplate.query(sql, new CircleManager());
+	  }
+	
+	//Inner Class
+	private static final class CircleManager implements RowMapper<Circle>{
 
 		@Override
 		public Circle mapRow(ResultSet resultSet, int rowNum) throws SQLException {
