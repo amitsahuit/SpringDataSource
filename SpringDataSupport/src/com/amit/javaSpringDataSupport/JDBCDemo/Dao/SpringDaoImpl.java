@@ -20,7 +20,7 @@ public class SpringDaoImpl {
 
 	//@Autowired
 	private DataSource datasource;
-	private JdbcTemplate jdbcTemplate = new JdbcTemplate();
+	private JdbcTemplate jdbcTemplate; //= new JdbcTemplate();
 
 	public DataSource getDatasource() {
 		return datasource;
@@ -77,6 +77,18 @@ public class SpringDaoImpl {
 		}
 		  
 	  }
+	
+	//inserting into Circle
+	public void insertCircle(Circle circle) {
+		String sql= "INSERT INTO CIRCLE(ID, NAME) VALUES(?,?)";
+		jdbcTemplate.update(sql, new Object[] {circle.getId(), circle.getName()});
+	}
+	
+	//Creating table
+	public void createTriangleTable() {
+		String sql = "CREATE TABLE TRIANGLE (ID INTEGER, NAME VARCHAR(50))";
+		jdbcTemplate.execute(sql);
+	}
 	  
 	/*
 	 * public Circle getCircle(int circleId) {
