@@ -38,12 +38,27 @@ public class SpringDaoImpl {
 		this.jdbcTemplate = jdbcTemplate;
 	}
 
+	//Gets the count of the records from Circle table. 
 	public int getCircleCount() {
 		String sql = "SELECT COUNT(*) FROM CIRCLE";
 		//jdbcTemplate.setDataSource(getDatasource());
 		return jdbcTemplate.queryForObject(sql, Integer.class);
 	}
-
+	
+	//returns the circle name for the circle whose ID am passing.
+	public String getCircleName(int circleId) {
+		String sql = "SELECT NAME FROM CIRCLE WHERE ID=?";
+		return jdbcTemplate.queryForObject(sql, new Object[] {circleId}, String.class);
+	}
+	
+	//Returns Circle Object.
+	/*
+	 * public Circle getCircleForId(int circleId) { String sql =
+	 * "SELECT NAME FROM CIRCLE WHERE ID=?";
+	 * 
+	 * }
+	 */
+	
 	/*
 	 * public Circle getCircle(int circleId) {
 	 * 

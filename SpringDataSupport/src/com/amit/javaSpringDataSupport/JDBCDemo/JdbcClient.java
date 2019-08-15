@@ -20,7 +20,8 @@ public class JdbcClient {
 		System.out.println(circle.getName());*/
 		
 		SpringDaoImpl dao = context.getBean("springDaoImpl", SpringDaoImpl.class);
-		System.out.println(dao.getCircleCount());
+		//System.out.println(dao.getCircleCount());
+		System.out.println(dao.getCircleName(1));
 		
 	}
 
