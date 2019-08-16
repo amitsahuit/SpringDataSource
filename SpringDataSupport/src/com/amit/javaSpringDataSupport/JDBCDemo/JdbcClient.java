@@ -4,6 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.amit.javaSpringDataSupport.JDBCDemo.Dao.JdbcDaoImpl;
+import com.amit.javaSpringDataSupport.JDBCDemo.Dao.SimpleJdbcDaoImpl;
 import com.amit.javaSpringDataSupport.JDBCDemo.Dao.SpringDaoImpl;
 import com.amit.javaSpringDataSupport.JDBCDemo.module.Circle;
 
@@ -15,17 +16,22 @@ public class JdbcClient {
 		  System.out.println(circle.getName());*/
 		
 		ApplicationContext context = new ClassPathXmlApplicationContext("SpringDataSupport.xml");
+		
 		/*JdbcDaoImpl dao = context.getBean("jdbcDaoImpl", JdbcDaoImpl.class);
 		Circle circle = dao.getCircle(1);
 		System.out.println(circle.getName());*/
 		
-		SpringDaoImpl dao = context.getBean("springDaoImpl", SpringDaoImpl.class);
+		/*SpringDaoImpl dao = context.getBean("springDaoImpl", SpringDaoImpl.class);
 		//System.out.println(dao.getCircleCount());
 		//System.out.println(dao.getCircleName(1));
 		//System.out.println(dao.getCircleForId(1).getName());
 		dao.insertCircle(new Circle(3, "Third Circle"));
-		System.out.println(dao.getAllCircles().size()); 
-		//dao.createTriangleTable();
+		System.out.println(dao.getAllCircles().size());  
+		//dao.createTriangleTable(); */
+		
+		SimpleJdbcDaoImpl dao = context.getBean("simpleJdbcDaoImpl", SimpleJdbcDaoImpl.class);
+		System.out.println(dao.getCircleCount());
+		
 	}
 
 }
