@@ -23,9 +23,9 @@ public class JdbcClient {
 		//System.out.println(dao.getCircleCount());
 		//System.out.println(dao.getCircleName(1));
 		//System.out.println(dao.getCircleForId(1).getName());
-		/*dao.insertCircle(new Circle(2, "Second Circle"));
-		System.out.println(dao.getAllCircles().size()); */
-		dao.createTriangleTable();
+		dao.insertCircle(new Circle(3, "Third Circle"));
+		System.out.println(dao.getAllCircles().size()); 
+		//dao.createTriangleTable();
 	}
 
 }
